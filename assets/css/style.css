@@ -35,7 +35,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Oswald", sans-serif;
+    font-family: "Raleway", sans-serif;
 }
 
 .content {
@@ -414,12 +414,12 @@ table.unstyledTable thead th {
 #hero .hero-logo {
     margin-top: 4rem;
     z-index: 5;
-    float: left;
     animation: zoomIn 1.5s ease-in-out;
 }
 
 #hero .hero-logo img{
-    max-width: 95%;
+    margin-left: 50px;
+    max-width: 85%;
     height: auto;
     object-fit: contain;
 }
@@ -565,9 +565,14 @@ table.unstyledTable thead th {
         width: auto;
         margin-top: -1rem;
     }
+    #hero .hero-logo{
+        margin:0;
+        padding:0;
+    }
     #hero .hero-logo img{
         max-height: 100%;
         object-fit: contain;
+        margin: 0;
     }
     #hero .hero-container {
         justify-content: top;
@@ -637,7 +642,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     position: relative;
 }
 
@@ -662,10 +667,29 @@ section {
 }
 
 .section-title h2 span {
+    display: inline-block;
+    position: relative;
+    padding: 10px 0;
     padding-bottom: 2px;
     letter-spacing: 1px;
-    border-top: 3px solid #26aba6;
-    border-bottom: 3px solid #26aba6;
+}
+
+.section-title h2 span::before,
+.section-title h2 span::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #26aba6;
+    left: 0;
+}
+
+.section-title h2 span::before {
+    top: 0; /* Border at the top of the first line */
+}
+
+.section-title h2 span::after {
+    bottom: 0; /* Border at the bottom of the last line */
 }
 
 .section-content {
@@ -678,6 +702,7 @@ section {
 
 .section-content p {
     margin-bottom: 0;
+    text-align: center;
     color: #fff;
     padding: 10px 10vw;
 }
@@ -882,12 +907,23 @@ section {
   align-items: center;
 }
 
+#pastevents .section-title {
+    padding-bottom: 10px;
+}
+#pastevents .section-title h2 {
+    font-size: 2vw;
+}
+
 #pastevents .owl-carousel{
     width: 80vh;
     height: auto;
     text-align: center;
     margin: 0 auto;
     flex-shrink: 0;
+}
+
+#pastevents .owl-nav{
+    margin-top:0px;
 }
 
 #pastevents .owl-carousel .owl-stage-outer {
@@ -898,6 +934,7 @@ section {
   display: flex;
   align-items: center;
   min-height: 300px;
+  border-radius: 3px;
 }
 
 #pastevents .owl-carousel .owl-item {
@@ -913,21 +950,21 @@ section {
 #pastevents .carousel-item img {
     width: 100%;
     height: 100%;
-    border-radius: 8px;
 }
 
 #pastevents .caption h1{
   position: absolute;
-  bottom: 10px;
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(61, 128, 126, 0.75);
+  background: #1f403f;
+  opacity: 0.8;
   color: #fff;
   padding: 5px 10px;
   border-radius: 3px;
   border-color: rgba(61, 128, 126);
   font-family: "Raleway", serif;
-  font-size: 1.5vw;
+  font-size: 1.7vw;
   text-align: center;
   max-width: 80%;
 }
@@ -942,8 +979,8 @@ section {
 }
 @media only screen and (max-width: 768px){
     #pastevents .section-title h2 {
-        font-size: 6vw;
-        margin-top: -5px;
+        font-size: 5vw;
+        margin-top: 5px;
     }
     #pastevents .section-title img{
         width: 65vw;
@@ -965,7 +1002,7 @@ section {
 # Upcoming Events
 --------------------------------------------------------------*/
 #upcomingevents .section-title h2 {
-    font-size: 1.5vw;
+    font-size: 1.7vw;
 }
 
 #upcomingevents {
@@ -1033,7 +1070,8 @@ section {
         width: 80vw;
     }
     #upcomingevents .section-title h2{
-        font-size: 20px;
+        font-size: 5vw;
+        margin-top: 5px;
     }
 }
 /*
@@ -1110,12 +1148,14 @@ max-width: 42px;
     background: transparent;
     border-radius: 50%;
     transition: 0.5s;
-    border: 1px solid #00b7c2;
+    border: 1px solid #26aba6;
+    object-fit: cover;
+    overflow: hidden;
 }
 
 .resources .icon i {
     color: #fff;
-    font-size: 24px;
+    font-size: 30px;
 }
 
 .resources .icon-box:hover .icon {
@@ -1123,134 +1163,172 @@ max-width: 42px;
 }
 
 .resources .icon-box:hover .icon i {
-    color: #00b7c2;
+    color: #e0f7f6;
 }
 
 .resources .title {
     margin-left: 80px;
     font-weight: 700;
     margin-bottom: 15px;
-    font-size: 18px;
+    font-size: 24px;
 }
 
 .resources .title a {
-    color: #343a40;
+    color: #9fe8d0;
 }
 
 .resources .title a:hover {
-    color: #00b7c2;
+    color: #26aba6;
+    text-decoration: underline;
 }
 
 .resources .description {
     text-align: left;
     margin-left: 80px;
     line-height: 24px;
-    font-size: 14px;
-}
-
-
-/*--------------------------------------------------------------
-# Join
---------------------------------------------------------------*/
-
-#join #mc_embed_signup {
-    background: #f5f8fd;
-    clear: left;
-    font-size: 14px;
-}
-
-#join #mc-embedded-subscribe.button {
-    width: fit-content;
-    float: right;
-    margin: 1rem;
-    background-color: #00b7c2;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-#join #mc-embedded-subscribe.button:hover {
-    background-color: #22a2a9;
-}
-/* #join .mc-field-group {
-    padding: 2px;
-} */
-
-#join .content ul {
-    margin: 1.5rem 0;
-}
-
-#join .content li {
-    font-size: large;
-    padding-right: 1.5rem;
-    margin-bottom: 1rem;
-    padding-left: 1.5em;
-    margin-left: 1rem;
-}
-
-#join .content ul li:before {
-    content: " ";
-    /* Use hex code in section
-/* Icofont Unicode */
-    font-family: Icofont;
-    display: inline-block;
-    margin-left: -1.3em;
-    /* same as padding-left set on li */
-    width: 1.3em;
     font-size: 20px;
-    color: #00b7c2;
-    content: "\ea98";
-    font-size: 22px;
+    color: #fff;
 }
+
 
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
 
-.contact {
-    padding-bottom: 130px;
+#contact .section-title h2 {
+    font-size: 2.3vw;
 }
-
-.contact .info {
+#contact #info {
+    margin-top: 30px;
     padding: 30px;
-    background: #fff;
+    background: #d8ede6;
     width: 100%;
     box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+    flex-grow: 1;
+    width: auto;
+    max-width: none;
+    text-align: left;
 }
 
-.contact .info i {
+#contact #info i {
     font-size: 20px;
     color: #00b7c2;
     float: left;
     width: 44px;
     height: 44px;
     background: #dff3fc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border-radius: 50px;
     transition: all 0.3s ease-in-out;
 }
 
-.contact .info h4 {
+#contact #info h4,
+#contact #info p {
+    display: inline-block; /* Keep elements on the same line */
+    vertical-align: middle; /* Align them vertically */
+    margin: 10px 0; /* Remove default margins */
+    padding: 0; /* Adjust padding as needed */
+}
+
+#contact #info h4 {
     padding: 0 0 0 60px;
     font-size: 22px;
     font-weight: 600;
-    margin-bottom: 5px;
     color: #050d18;
 }
 
-.contact .info p {
-    padding: 0 0 10px 60px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    color: #0f4c75;
+#contact #info p {
+    font-size: 20px;
+    color: #26aba6;
 }
 
-.contact .info .email p {
-    padding-top: 5px;
+/* General Form Styling */
+#googleForm {
+    margin-top: 10px;
+    width: 80%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Label Styling */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Input and Select Styling */
+input[type="email"],
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus,
+select:focus {
+    border-color: #26aba6; /* Highlight color */
+    outline: none;
+    box-shadow: 0 0 5px rgba(38, 171, 166, 0.5);
+}
+
+/* Button Styling */
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #26aba6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+button:hover {
+    background-color: #218c8a; /* Hover effect */
+}
+
+/* Required Field Indicator */
+.required {
+    color: red;  /* Makes the asterisk red */
+    margin-left: 5px; /* Adds a small space between the label and the asterisk */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #contact .section-title h2 {
+        font-size: 6vw;
+    }
+    #googleForm {
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
 /* .contact .info .social-links {
 padding-left: 60px;
 }
