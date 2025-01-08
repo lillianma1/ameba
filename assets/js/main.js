@@ -227,24 +227,32 @@
 
     // // Portfolio details carousel
     
-    $(document).ready(function() {
-      var owl = $('.owl-carousel');
-
-      owl.owlCarousel({
-        items: 1,
+    document.addEventListener("DOMContentLoaded", function() {
+      // Initialize Owl Carousel with autoplay disabled
+      var owl = $(".owl-carousel").owlCarousel({
         loop: true,
-        autoplay: true,
-        autoplayTimeout: 3500,
-        nav: true,
         margin: 10,
+        nav: false,
+        autoplay: false,  // Initially, autoplay is off
+        items: 1
       });
 
-      owl.on('changed.owl.carousel', function(event) {
-          var item = event.item.index - 2;     // Position of the current item
-          $('h1').removeClass('animated bounce');
-     $('.owl-item').not('.cloned').eq(item).find('h1').addClass('animated bounce');
+      // Set up Intersection Observer to detect when the carousel comes into view
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Start autoplay once the section is in view
+            owl.trigger('play.owl.autoplay', [2000]);  // Starts autoplay with 2s delay
+            observer.unobserve(entry.target);  // Stop observing once autoplay is triggered
+          }
+        });
+      }, {
+        threshold: 0.5  // Start when 50% of the section is visible
       });
 
+      // Observe the carousel section
+      const carouselSection = document.querySelector("#pastevents");  // or any other section ID
+      observer.observe(carouselSection);
     });
     
    /* $(".portfolio-details-carousel").owlCarousel({
